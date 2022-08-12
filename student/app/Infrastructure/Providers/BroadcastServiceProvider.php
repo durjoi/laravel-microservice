@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Providers;
+namespace App\Infrastructure\Providers;
 
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\ServiceProvider;
+use function base_path;
 
 class BroadcastServiceProvider extends ServiceProvider
 {
