@@ -15,22 +15,19 @@ class StudentController extends Controller
         $this->student = $student;
     }
 
-    public function index()
-    {
+    public function index() {
         return response()->json([
             'data' => $this->student->findAll()
         ]);
     }
 
-    public function show($id)
-    {
+    public function show($id) {
         return response()->json([
             'data' => $this->student->findOne($id)
         ]);
     }
 
-    public function store(StudentCreateRequest $createStudent)
-    {
+    public function store(StudentCreateRequest $createStudent) {
 
         $newStudent = $createStudent->only([
             'name',
@@ -42,8 +39,7 @@ class StudentController extends Controller
         ], Response::HTTP_CREATED);
     }
 
-    public function update(StudentUpdateRequest $updateStudent, $id)
-    {
+    public function update(StudentUpdateRequest $updateStudent, $id) {
         $newStudent = $updateStudent->only([
             'name',
             'roll'
@@ -54,9 +50,9 @@ class StudentController extends Controller
         ]);
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $this->student->delete($id);
         return response()->json(['status' => true]);
     }
+
 }
